@@ -7,7 +7,9 @@ plugins {
 android {
     namespace = "com.example.newsapp"
     compileSdk = 34
-
+buildFeatures{
+    viewBinding = true
+}
     defaultConfig {
         applicationId = "com.example.newsapp"
         minSdk = 26
@@ -46,5 +48,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.fragment:fragment:1.8.2")
     implementation(platform("com.google.firebase:firebase-bom:33.2.0"))
+    implementation("com.google.firebase:firebase-firestore")
+
 }
