@@ -11,34 +11,101 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Newzia"
         android:layout_marginStart="8dp"
-        app:layout_constraintStart_toStartOf="parent
-"
+        android:layout_marginTop="32dp"
+        android:text="Newzia"
+        android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="bold|italic"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="32dp"
-        android:textColor="@color/black"
-        />
+        app:layout_constraintStart_toStartOf="parent
+"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
         android:src="@drawable/filter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/name"
         app:layout_constraintBottom_toBottomOf="@id/name"
-        android:layout_marginEnd="10dp"/>
-
-
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_height="0dp"
-        android:layout_width="0dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/name" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <!-- First Button -->
+            <Button
+                android:id="@+id/bs_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4BC8BFBF"
+                android:text="business"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Second Button -->
+            <Button
+                android:id="@+id/fs_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4BC8BFBF"
+                android:text="fashion"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Third Button -->
+            <Button
+                android:id="@+id/sp_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="#4BC8BFBF"
+                android:text="sports"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/newslist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/news_list_item" />
+
+
+
+    </LinearLayout>
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/nav_btn"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_btn"
         android:layout_width="0dp"
@@ -46,10 +113,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:itemTextColor="@drawable/selector"
         app:menu="@menu/bottom_nav">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
