@@ -1,5 +1,6 @@
 package com.example.newsapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -60,7 +61,11 @@ class LogIn : AppCompatActivity() {
             if (task.isSuccessful) {
                 binding.progress.isVisible = false
                 if (auth.currentUser?.isEmailVerified == true) {
-                    finish()
+                    val sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putBoolean("login",true)
+                    editor.apply()
+                    startActivity(Intent(this,HomeActivity::class.java))
                 } else
                     Toast.makeText(this, "Check your email to verify!", Toast.LENGTH_SHORT).show()
             } else {

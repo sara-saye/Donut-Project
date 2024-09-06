@@ -1,5 +1,6 @@
 package com.example.newsapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -67,16 +68,9 @@ class SignUpActivity : AppCompatActivity() {
     private fun setupCountrySpinner() {
         val countries = listOf(
             "Select Country",
-            "United States",
-            "Canada",
-            "United Kingdom",
-            "Australia",
-            "India",
-            "Egypt",
-            "Moroco",
-            "Lebanon",
-            "Other"
-
+            "us",
+            "eg",
+            "de"
         )
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, countries)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -96,6 +90,12 @@ class SignUpActivity : AppCompatActivity() {
                 selectedCountry = item?.toString() ?: ""
                 if (selectedCountry == "Select Country") {
                     selectedCountry = ""
+                }
+                else{
+                    val sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putString("Country",selectedCountry)
+                    editor.apply()
                 }
             }
 

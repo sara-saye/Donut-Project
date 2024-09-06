@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import com.example.newsapp.databinding.ActivityFavoriteBinding
 
 class FavoriteActivity : AppCompatActivity() {
@@ -16,6 +17,7 @@ class FavoriteActivity : AppCompatActivity() {
         setContentView(binding.root)
         val adapter = NewsAdapter(favoriteNews)
         binding.newslist.adapter = adapter
+        binding.loading.isVisible =false
         binding.navBtn.selectedItemId=R.id.favorite
         binding.navBtn.setOnItemSelectedListener {
             val i:Intent

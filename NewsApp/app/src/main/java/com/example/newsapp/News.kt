@@ -7,5 +7,6 @@ data class Article(
     val title:String,
     val url:String,
     val image:String,
-    val catgory:String
+    val catgory:String,
+   val source_country:String
 )

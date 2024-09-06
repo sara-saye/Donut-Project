@@ -1,6 +1,8 @@
 package com.example.newsapp
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -28,6 +30,7 @@ class HomeActivity : AppCompatActivity() {
 //        val banner_ad_layout = findViewById<ShimmerFrameLayout>(R.id.banner_layout)
 //
 //        BannerAds.createBanner(this, banner_ad_layout, this@HomeActivity)
+
         binding.navBtn.selectedItemId = R.id.home
         binding.navBtn.setOnItemSelectedListener {
             val i: Intent
