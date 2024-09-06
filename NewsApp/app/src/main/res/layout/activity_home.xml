@@ -21,15 +21,6 @@
 "
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:src="@drawable/filter"
-        app:layout_constraintBottom_toBottomOf="@id/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/name" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -44,76 +35,83 @@
 
             <!-- First Button -->
             <Button
-                android:id="@+id/bs_button"
-                android:layout_width="0dp"
+                android:id="@+id/business"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
                 android:layout_marginEnd="3dp"
                 android:layout_weight="1"
                 android:backgroundTint="#4BC8BFBF"
-                android:text="business"
+                android:text="Business"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
             <!-- Second Button -->
             <Button
-                android:id="@+id/fs_button"
-                android:layout_width="0dp"
+                android:id="@+id/culture"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
                 android:layout_marginEnd="3dp"
                 android:layout_weight="1"
                 android:backgroundTint="#4BC8BFBF"
-                android:text="fashion"
+                android:text="Culture"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
             <!-- Third Button -->
+
+
             <Button
-                android:id="@+id/sp_button"
-                android:layout_width="0dp"
+                android:id="@+id/education"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="3dp"
                 android:layout_marginEnd="3dp"
                 android:layout_weight="1"
                 android:backgroundTint="#4BC8BFBF"
-                android:text="sports"
+                android:text="Education"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold" />
-
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/newslist"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swiprefersh"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/news_list_item" />
+            android:layout_height="wrap_content">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/newslist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/news_list_item" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
     </LinearLayout>
+
     <ProgressBar
         android:id="@+id/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:itemTextColor="@drawable/selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemTextColor="@drawable/selector"
         app:menu="@menu/bottom_nav">
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

@@ -62,6 +62,8 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
     //admob ads
     // //implementation("com.google.android.gms:play-services-ads:23.3.0")
     //sgimmer layout

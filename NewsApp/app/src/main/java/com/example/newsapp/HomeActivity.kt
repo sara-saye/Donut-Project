@@ -1,4 +1,5 @@
 package com.example.newsapp
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,30 +17,32 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         loadNews()
-      //  MobileAds.initialize(this)
+        binding.swiprefersh.setOnRefreshListener { loadNews() }
+        //  MobileAds.initialize(this)
 //        val banner_ad_layout = findViewById<ShimmerFrameLayout>(R.id.banner_layout)
 //
 //        BannerAds.createBanner(this, banner_ad_layout, this@HomeActivity)
-       binding.navBtn.selectedItemId=R.id.home
+        binding.navBtn.selectedItemId = R.id.home
         binding.navBtn.setOnItemSelectedListener {
-            val i:Intent
+            val i: Intent
             when (it.itemId) {
                 R.id.setting -> {
                     i = Intent(this, SettingActivity::class.java)
                     startActivity(i)
                 }
+
                 R.id.favorite -> {
                     i = Intent(this, FavoriteActivity::class.java)
                     startActivity(i)
                 }
-                R.id.home->{}
+
+                R.id.home -> {}
 
             }
             true
@@ -58,7 +61,35 @@ class HomeActivity : AppCompatActivity() {
                 val newss = p1.body()
                 val news = newss?.news!!
                 showNews(news)
+                binding.business.setOnClickListener {
+                    val business= ArrayList<Article>()
+                    for (value in news) {
+                        if (value.catgory.equals( "business")) {
+                            business.add(value)
+                        }
+                    }
+                    showNews(business)
+                }
+                binding.culture.setOnClickListener {
+                    val culture= ArrayList<Article>()
+                    for (value in news) {
+                        if (value.catgory.equals("culture")) {
+                            culture.add(value)
+                        }
+                    }
+                    showNews(culture)
+                }
+                binding.education.setOnClickListener {
+                    val education= ArrayList<Article>()
+                    for (value in news) {
+                        if (value.catgory.equals("education")) {
+                            education.add(value)
+                        }
+                    }
+                    showNews(education)
+                }
                 binding.loading.isVisible = false
+                binding.swiprefersh.isRefreshing = false
                 Log.d("trace", news.toString())
             }
 
